@@ -318,7 +318,8 @@ let textareaString = "";
 
 document.addEventListener('click', e => {
     if (e.target.classList.contains("keyboard-button")) {
-        
+        activeElement();
+         e.target.classList.add('keyboard-button_animate');
       if (e.target.innerText === "backspace") {
          textareaString = input.value; 
         input.value = textareaString;
@@ -389,3 +390,10 @@ document.addEventListener('click', e => {
       }
     }
 );
+
+function activeElement() {
+   buttonKey.forEach(buttonKey => {
+      buttonKey.classList.remove('keyboard-button_active');
+      buttonKey.classList.remove('keyboard-button_animate');
+   });
+};
