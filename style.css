@@ -6,6 +6,10 @@
     display: block;
     max-width: auto;
     margin: 0 auto;
+    height: 100px;
+    /* word-break: break-all; */
+    
+    
 }
 
 .keyboard-container {
@@ -72,8 +76,30 @@
     content: '\2192';
 }
 
+.keyboard-button_active {
+    background-color: #bb9d42;
+}
 
+/* Анимация */
+.keyboard-button_animate {
+    
+    animation: animate_reduce 1s 1;
+    background: #F7CA18;
+    border: solid px #bb9d42;
+    color: black;
+}
 
+@keyframes animate_reduce {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(0.95, 0.95, 0.95);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
 
 
 
