@@ -1,0 +1,108 @@
+.keyboard-title {
+    text-align: center;
+}
+
+.keyboard-input {
+    display: block;
+    max-width: auto;
+    margin: 0 auto;
+    height: 100px;
+    /* word-break: break-all; */
+    
+    
+}
+
+.keyboard-container {
+    max-width: 1200px;
+    margin: 20px auto 20px auto;
+    border: solid 2px;
+    height: 280px;
+    background-color: rgba(83, 85, 82, 0.904);
+}
+
+.keyboard-wrapper {
+    max-width: 800px;
+    margin: 15px auto 15px auto;
+    height: 170px;
+}
+
+.keyboard-button {
+    width: 50px;
+    height: 50px;
+    color: azure;
+    background-color: rgba(83, 85, 82, 0.904);
+}
+
+.keyboard-button_backquote,
+.keyboard-button_backspace,
+.keyboard-button_tab {
+    width: 100px;
+}
+
+.keyboard-button_slash:before {
+    content: '\005C';
+}
+
+.keyboard-button_capslock,
+.keyboard-button_enter {
+    width: 125px;
+}
+
+.keyboard-button_shiftleft,
+.keyboard-button_shiftright {
+    width: 100px;
+}
+
+.keyboard-button_ctrlleft,
+.keyboard-button_ctrlright {
+    width: 120px;
+}
+
+.keyboard-button_space {
+    width: 260px;
+}
+
+.keyboard-button_up:before {
+    content: '\2191';
+}
+
+.keyboard-button_left:before {
+    content: '\2190';
+}
+
+.keyboard-button_down:before {
+    content: '\2193';
+}
+
+.keyboard-button_right:before {
+    content: '\2192';
+}
+
+.keyboard-button_active {
+    background-color: #bb9d42;
+}
+
+/* Анимация */
+.keyboard-button_animate {
+    
+    animation: animate_reduce 1s 1;
+    background: #F7CA18;
+    border: solid px #bb9d42;
+    color: black;
+}
+
+@keyframes animate_reduce {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(0.95, 0.95, 0.95);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+
+
