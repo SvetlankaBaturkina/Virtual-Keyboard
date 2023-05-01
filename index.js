@@ -16,18 +16,6 @@ const i18Obj = {
          '=': '=',
          'backspace': 'backspace',
          'tab': 'tab',
-         '1': '1',
-         '2': '2',
-         '3': '3',
-         '4': '4',
-         '5': '5',
-         '6': '6',
-         '7': '7',
-         '8': '8',
-         '9': '9',
-         '0': '0',
-         '-': '-',
-         '=': '=',
          'q': 'q',
          'w': 'w',
          'e': 'e',
@@ -93,18 +81,6 @@ const i18Obj = {
          '=': '=',
          'backspace': 'backspace',
          'tab': 'tab',
-         '1': '1',
-         '2': '2',
-         '3': '3',
-         '4': '4',
-         '5': '5',
-         '6': '6',
-         '7': '7',
-         '8': '8',
-         '9': '9',
-         '0': '0',
-         '-': '-',
-         '=': '=',
          'q': 'Q',
          'w': 'W',
          'e': 'E',
@@ -149,7 +125,67 @@ const i18Obj = {
          'alt': 'alt',
          'alt': 'alt',
          'space': 'space',
-         
+       },
+   'rucapslock': {
+         '`': '`',
+         '1': '1',
+         '2': '2',
+         '3': '3',
+         '4': '4',
+         '5': '5',
+         '6': '6',
+         '7': '7',
+         '8': '8',
+         '9': '9',
+         '0': '0',
+         '-': '-',
+         '=': '=',
+         'backspace': 'backspace',
+         'tab': 'tab',
+         'q': 'Й',
+         'w': 'Ц',
+         'e': 'У',
+         'r': 'К',
+         't': 'Е',
+         'y': 'Н',
+         'u': 'Г',
+         'i': 'Ш',
+         'o': 'Щ',
+         'p': 'З',
+         '[': 'Х',
+         ']': 'Ъ',
+         '\\': '\\',
+         'delete': 'delete',
+         'caps lock': 'caps lock',
+         'a': 'Ф',
+         's': 'Ы',
+         'd': 'В',
+         'f': 'А',
+         'g': 'П',
+         'h': 'Р',
+         'j': 'О',
+         'k': 'Л',
+         'l': 'Д',
+         ';': 'Ж',
+         "'": "Э",
+         'enter': 'enter',
+         'shift': 'shift',
+         'z': 'Я',
+         'x': 'Ч',
+         'c': 'С',
+         'v': 'М',
+         'b': 'И',
+         'n': 'Т',
+         'm': 'Ь',
+         ',': 'Б',
+         '.': 'Ю',
+         '/': '.',
+         'ru': 'en',
+         'ctrl': 'ctrl',
+         'win': 'win',
+         'alt': 'alt',
+         'alt': 'alt',
+         'space': 'space',
        },
    'enshift': {
          '`': '~',
@@ -167,18 +203,6 @@ const i18Obj = {
          '=': '+',
          'backspace': 'backspace',
          'tab': 'tab',
-         '1': '1',
-         '2': '2',
-         '3': '3',
-         '4': '4',
-         '5': '5',
-         '6': '6',
-         '7': '7',
-         '8': '8',
-         '9': '9',
-         '0': '0',
-         '-': '-',
-         '=': '=',
          'q': 'Q',
          'w': 'W',
          'e': 'E',
@@ -223,7 +247,67 @@ const i18Obj = {
          'alt': 'alt',
          'alt': 'alt',
          'space': 'space',
-         
+       }, 
+   'rushift': {
+         '`': 'Ё',
+         '1': '!',
+         '2': '"',
+         '3': '№',
+         '4': ';',
+         '5': '%',
+         '6': ':',
+         '7': '?',
+         '8': '*',
+         '9': '(',
+         '0': ')',
+         '-': '_',
+         '=': '+',
+         'backspace': 'backspace',
+         'tab': 'tab',
+         'q': 'Й',
+         'w': 'Ц',
+         'e': 'У',
+         'r': 'К',
+         't': 'Е',
+         'y': 'Н',
+         'u': 'Г',
+         'i': 'Ш',
+         'o': 'Щ',
+         'p': 'З',
+         '[': 'Х',
+         ']': 'Ъ',
+         '\\': '/',
+         'delete': 'delete',
+         'caps lock': 'caps lock',
+         'a': 'Ф',
+         's': 'Ы',
+         'd': 'В',
+         'f': 'А',
+         'g': 'П',
+         'h': 'Р',
+         'j': 'О',
+         'k': 'Л',
+         'l': 'Д',
+         ';': 'Ж',
+         "'": 'Э',
+         'enter': 'enter',
+         'shift': 'shift',
+         'z': 'Я',
+         'x': 'Ч',
+         'c': 'С',
+         'v': 'М',
+         'b': 'И',
+         'n': 'Т',
+         'm': 'Ь',
+         ',': 'Б',
+         '.': 'Ю',
+         '/': ',',
+         'ru': 'en',
+         'ctrl': 'ctrl',
+         'win': 'win',
+         'alt': 'alt',
+         'alt': 'alt',
+         'space': 'space',
        }, 
    'ru': {
          '`': 'ё',
@@ -254,7 +338,7 @@ const i18Obj = {
          '[': 'х',
          ']': 'ъ',
          'delete': 'delete',
-         'slash': 'slash',
+         '\\': '\\',
          'caps lock': 'caps lock',
          'a': 'ф',
          's': 'ы',
@@ -279,11 +363,12 @@ const i18Obj = {
          ',': 'б',
          '.': 'ю',
          '/': '.',
+         'ru': 'en',
+         'space': 'space',
          'up': 'up',
          'ctrl': 'ctrl',
          'win': 'win',
          'alt': 'alt',
-         'space': " ",
          'left': 'left',
          'down': 'down',
          'right': 'right',
@@ -396,13 +481,20 @@ if (button.innerText === "slash") {
     button.innerText = "";
     button.classList.add('keyboard-button_right');
  }
+ if (button.innerText === "ru") {
+    button.classList.add('keyboard-button_language');
+ }
+ if (button.innerText === "en") {
+   button.classList.add('keyboard-button_language');
+}
  // Добавление attributes кнопкам клавиатуры для capslock
  button.setAttribute("data-i18", button.innerHTML);
 }
 };
 
-createKeys();
-
+ // Загрузка страницы
+ window.addEventListener("DOMContentLoaded", createKeys());
+   
 let buttonKey = document.querySelectorAll('.keyboard-button');
 const allElenemtData = document.querySelectorAll('[data-i18]');
 let textareaString = "";
@@ -432,13 +524,24 @@ document.addEventListener('mousedown', e => {
             textareaString = input.value;
          }
          if (e.target.classList.contains('caps_lock')) {
-            allElenemtData.forEach((element) => {
-               element.textContent = i18Obj.encapslock[element.dataset.i18];
-         })} else {
-            allElenemtData.forEach((element) => {
-               element.textContent = i18Obj.en[element.dataset.i18];
-            });
-         }
+            if (language.innerText === 'en') {
+               allElenemtData.forEach((element) => {
+                  element.textContent = i18Obj.rucapslock[element.dataset.i18];
+               })
+            } else if (language.innerText === 'ru') {
+               allElenemtData.forEach((element) => {
+                  element.textContent = i18Obj.encapslock[element.dataset.i18];
+               })
+            };
+         } else if (language.innerText === 'en') {
+               allElenemtData.forEach((element) => {
+                  element.textContent = i18Obj.ru[element.dataset.i18];
+               })
+            } else if (language.innerText === 'ru') {
+               allElenemtData.forEach((element) => {
+                  element.textContent = i18Obj.en[element.dataset.i18];
+               })
+            };
       } else if (e.target.innerText === "space") {
          input.value = textareaString + ' '; 
          textareaString = input.value;
@@ -447,7 +550,18 @@ document.addEventListener('mousedown', e => {
          input.value = textareaString + ''; 
          textareaString = input.value;
 
-      } else if (e.target.classList.contains('keyboard-button_altleft') || e.target.classList.contains('keyboard-button_altright')) {
+      } else if (e.target.innerText === "ru") {
+         input.value = textareaString + ''; 
+         textareaString = input.value;
+         translate ();
+
+      } else if (e.target.innerText === "en") {
+         input.value = textareaString + ''; 
+         textareaString = input.value;
+         translate ();
+
+      }
+      else if (e.target.classList.contains('keyboard-button_altleft') || e.target.classList.contains('keyboard-button_altright')) {
          input.value = textareaString + ''; 
          textareaString = input.value;
 
@@ -456,10 +570,15 @@ document.addEventListener('mousedown', e => {
          textareaString = input.value;
       }
        else if (e.target.classList.contains('keyboard-button_shiftleft') || e.target.classList.contains('keyboard-button_shiftright'))  {
-         allElenemtData.forEach((element) => {
-         element.textContent = i18Obj.enshift[element.dataset.i18];
-         });
-          
+         if (language.innerText === 'en') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.rushift[element.dataset.i18];
+            })
+         } else if (language.innerText === 'ru') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.enshift[element.dataset.i18];
+            })
+         };
       }  else if (e.target.classList.contains('keyboard-button_up')) {
          input.value = textareaString + "↑"; 
          textareaString = input.value;
@@ -499,14 +618,14 @@ function activeElement() {
    });
 };
 
-let activeButton
+let activeButton;
 
 document.addEventListener('keydown', function(event) {
    console.log(event.code);
    console.log(event.key);
-   if (event.target.classList.contains('keyboard-button') & event.code !== "Space" & event.code !== "AltLeft" & event.code !== "AltRight"
-    & event.code !== "ShiftLeft" & event.code !== "ShiftRight"
-    & event.code !== "ControlLeft" & event.code !== "ControlRight") {
+   if (event.code !== "Space" && event.code !== "AltLeft" && event.code !== "AltRight"
+    && event.code !== "ShiftLeft" && event.code !== "ShiftRight"
+    && event.code !== "ControlLeft" && event.code !== "ControlRight") {
       activeButton = document.getElementById(event.key.toLowerCase());
       console.log(activeButton);
       activeButton.classList.add('keyboard-button_animate');
@@ -565,18 +684,30 @@ document.addEventListener('keydown', function(event) {
       else if (event.code === "ShiftLeft") {
          input.value = textareaString + "";
          textareaString = input.value;
-         allElenemtData.forEach((element) => {
-            element.textContent = i18Obj.enshift[element.dataset.i18];
-            });
+         if (language.innerText === 'en') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.rushift[element.dataset.i18];
+            })
+         } else if (language.innerText === 'ru') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.enshift[element.dataset.i18];
+            })
+         };
          activeButton = document.querySelector(".keyboard-button_shiftleft");
          activeButton.classList.add('keyboard-button_animate');
       }
       else if (event.code === "ShiftRight") {
          input.value = textareaString + "";
          textareaString = input.value;
-         allElenemtData.forEach((element) => {
-            element.textContent = i18Obj.enshift[element.dataset.i18];
-            });
+         if (language.innerText === 'en') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.rushift[element.dataset.i18];
+            })
+         } else if (language.innerText === 'ru') {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.enshift[element.dataset.i18];
+            })
+         };
          activeButton = document.querySelector(".keyboard-button_shiftright");
          activeButton.classList.add('keyboard-button_animate');
       }    
@@ -625,17 +756,72 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keyup', event => {
    activeElement();
    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
-      allElenemtData.forEach((element) => {
-         element.textContent = i18Obj.en[element.dataset.i18];
-      })
+      if (language.innerText === 'en') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.rushift[element.dataset.i18];
+         })
+      } else if (language.innerText === 'ru') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.enshift[element.dataset.i18];
+         })
+      };
    }
 }); 
 
 document.addEventListener('mouseup', e => {
    activeElement();
    if (e.target.innerText === "shift") {
+      if (language.innerText === 'en') {
+         console.log(23);
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.ru[element.dataset.i18];
+         });
+      } else if (language.innerText === 'ru') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.en[element.dataset.i18];
+         });
+      };
+   }
+});
+
+let language = document.querySelector('.keyboard-button_language');
+
+function translate () {
+   if (language.innerHTML === 'ru') {
       allElenemtData.forEach((element) => {
-         element.textContent = i18Obj.en[element.dataset.i18];
+         element.textContent = i18Obj.ru[element.dataset.i18];
+      })
+   } else if (language.innerHTML === 'en') {
+      allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.en[element.dataset.i18];
       })
    }
-}); 
+};
+
+function setLocalStorage() {
+    localStorage.setItem('lang', language.innerHTML);
+};
+
+// перед перезагрузкой или закрытием страницы (событие beforeunload) данные нужно сохранить 
+if (window.addEventListener('beforeunload', setLocalStorage));
+
+function getLocalStorage() {
+      if (localStorage.getItem('lang') === 'ru') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.en[element.dataset.i18];
+         })
+         console.log(20);
+      } else if (localStorage.getItem('lang') === 'en') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.ru[element.dataset.i18];
+         })
+      }
+      if (language.value = '') {
+         allElenemtData.forEach((element) => {
+            element.textContent = i18Obj.en[element.dataset.i18];
+         })
+      }
+};
+
+// перед загрузкой страницы (событие load) данные нужно восстановить и отобразить 
+window.addEventListener('load', getLocalStorage); 
