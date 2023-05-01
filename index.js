@@ -40,7 +40,7 @@ const i18Obj = {
          'p': 'p',
          '[': '[',
          ']': ']',
-         'slash': 'slash',
+         '\\': '\\',
          'delete': 'delete',
          'caps lock': 'caps lock',
          'a': 'a',
@@ -149,7 +149,79 @@ const i18Obj = {
          'space': 'space',
          
        },
-       
+       'enshift': {
+         '`': '~',
+         '1': '!',
+         '2': '@',
+         '3': '#',
+         '4': '$',
+         '5': '%',
+         '6': '^',
+         '7': '&',
+         '8': '*',
+         '9': '(',
+         '0': ')',
+         '-': '_',
+         '=': '+',
+         'backspace': 'backspace',
+         'tab': 'tab',
+         '1': '1',
+         '2': '2',
+         '3': '3',
+         '4': '4',
+         '5': '5',
+         '6': '6',
+         '7': '7',
+         '8': '8',
+         '9': '9',
+         '0': '0',
+         '-': '-',
+         '=': '=',
+         'q': 'Q',
+         'w': 'W',
+         'e': 'E',
+         'r': 'R',
+         't': 'T',
+         'y': 'Y',
+         'u': 'U',
+         'i': 'I',
+         'o': 'O',
+         'p': 'P',
+         '[': '{',
+         ']': '}',
+         '\\': '|',
+         'delete': 'delete',
+         'caps lock': 'caps lock',
+         'a': 'A',
+         's': 'S',
+         'd': 'D',
+         'f': 'F',
+         'g': 'G',
+         'h': 'H',
+         'j': 'J',
+         'k': 'K',
+         'l': 'L',
+         ';': ':',
+         "'": '"',
+         'enter': 'enter',
+         'shift': 'shift',
+         'z': 'Z',
+         'x': 'X',
+         'c': 'C',
+         'v': 'V',
+         'b': 'B',
+         'n': 'N',
+         'm': 'M',
+         ',': '<',
+         '.': '>',
+         '/': '?',
+         'ru': 'ru',
+         'ctrl': 'ctrl',
+         'win': 'win',
+         'alt': 'alt',
+         'space': 'space',
+         
+       }, 
        'ru': {
          '`': 'ё',
          '1': '1',
@@ -218,8 +290,8 @@ const i18Obj = {
 let keys = [
     
     "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
-    "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "slash", "delete",
-        "caps_lock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
+    "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\", "delete",
+        "capslock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
         "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "shift", "up", "ru",
         "ctrl", "win", "alt", "space", "alt", "ctrl", "left", "down", "right"
           
@@ -252,6 +324,8 @@ function createKeys() {
     wrapper.appendChild(button);
     button.innerText = keys[i];
 
+    button.setAttribute("id", button.innerHTML);
+
 if (button.innerText === "`") {
     button.classList.add('keyboard-button_backquote');
      }
@@ -273,7 +347,7 @@ if (button.innerText === "slash") {
    button.innerText = "delete";
    button.classList.add('keyboard-button_delete');
 }
- if (button.innerText === "caps_lock") {
+ if (button.innerText === "capslock") {
     button.innerText = "caps lock";
     button.classList.add('keyboard-button_capslock');
  }
@@ -307,6 +381,7 @@ if (button.innerText === "slash") {
  }
  // Добавление attributes кнопкам клавиатуры для capslock
  button.setAttribute("data-i18", button.innerHTML);
+ 
 }
 };
 
@@ -316,7 +391,7 @@ let buttonKey = document.querySelectorAll('.keyboard-button');
 const allElenemtData = document.querySelectorAll('[data-i18]');
 let textareaString = "";
 
-document.addEventListener('click', e => {
+document.addEventListener('mousedown', e => {
     if (e.target.classList.contains("keyboard-button")) {
         activeElement();
          e.target.classList.add('keyboard-button_animate');
@@ -343,11 +418,10 @@ document.addEventListener('click', e => {
          if (e.target.classList.contains('caps_lock')) {
             allElenemtData.forEach((element) => {
                element.textContent = i18Obj.encapslock[element.dataset.i18];
-            })
-         } else {
+         })} else {
             allElenemtData.forEach((element) => {
                element.textContent = i18Obj.en[element.dataset.i18];
-            })
+            });
          }
       } else if (e.target.innerText === "space") {
          input.value = textareaString + ' '; 
@@ -357,8 +431,12 @@ document.addEventListener('click', e => {
          input.value = textareaString + ''; 
          textareaString = input.value;
 
-      }
-       else if (e.target.classList.contains('keyboard-button_up')) {
+      } else if (e.target.innerText === "shift") {
+         allElenemtData.forEach((element) => {
+         element.textContent = i18Obj.enshift[element.dataset.i18];
+         });
+          
+      }  else if (e.target.classList.contains('keyboard-button_up')) {
          input.value = textareaString + "↑"; 
          textareaString = input.value;
 
@@ -388,8 +466,8 @@ document.addEventListener('click', e => {
             textareaString = input.value;
       }
       }
-    }
-);
+    });
+
 
 function activeElement() {
    buttonKey.forEach(buttonKey => {
@@ -397,3 +475,68 @@ function activeElement() {
       buttonKey.classList.remove('keyboard-button_animate');
    });
 };
+
+document.addEventListener('keydown', function(event) {
+   console.log(event.key);
+   let activeButton = document.getElementById(event.key.toLowerCase());
+   activeElement();
+   console.log(activeButton);
+   activeButton.classList.add('keyboard-button_animate');
+      if (event.key === "Backspace") {
+         input.value = textareaString.substring(0, textareaString.length - 1);
+      }
+       else if (event.key === "Tab") {
+         input.value = textareaString + "    ";
+         textareaString = input.value;
+      } 
+      else if (event.key === "\\") {
+         input.value = textareaString + "\\";
+         textareaString = input.value;
+      } 
+      else if (event.key === "Delete") {
+         input.value = textareaString.substring(0, textareaString.length - 1);
+         textareaString = input.value;
+      } 
+      else if (event.key === "CapsLock") {
+         input.value = textareaString + "";
+         textareaString = input.value;
+         for (let i=0; i<keys.length; i++) {
+            buttonKey[i].classList.toggle('caps_lock');
+            
+         }
+         if (activeButton.classList.contains('caps_lock')) {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.encapslock[element.dataset.i18];
+               console.log(element.textContent);
+            })
+         } else {
+            allElenemtData.forEach((element) => {
+               element.textContent = i18Obj.en[element.dataset.i18];
+            })
+         }
+      }
+      else {
+         input.value = textareaString + event.key;
+         console.log(input.value);
+         textareaString = input.value;
+}
+});
+
+document.addEventListener('mouseup', e => {
+   activeElement();
+   if (e.target.innerText === "shift") {
+      allElenemtData.forEach((element) => {
+         console.log(e.target);
+         element.textContent = i18Obj.en[element.dataset.i18];
+      })
+   }
+      
+});
+
+
+
+
+   
+
+   
+  
