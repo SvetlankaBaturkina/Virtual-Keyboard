@@ -48,11 +48,13 @@
     width: 125px;
 }
 
-.keyboard-button_shift {
+.keyboard-button_shiftleft,
+.keyboard-button_shiftright {
     width: 100px;
 }
 
-.keyboard-button_ctrl {
+.keyboard-button_ctrlleft,
+.keyboard-button_ctrlright {
     width: 120px;
 }
 
