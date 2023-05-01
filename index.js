@@ -402,7 +402,22 @@ let container = document.createElement('div');
 let wrapper = document.createElement('div');
     wrapper.classList.add('keyboard-wrapper');
     document.body.append(container);  
-    container.appendChild(wrapper);  
+    container.appendChild(wrapper); 
+    
+let p = document.createElement('p');
+    p.innerText = 'Клавиатура создана в операционной системе Windows';
+    p.classList.add('keyboard-text');
+    document.body.append(p);
+
+    p = document.createElement('p');
+    p.innerText = 'Для переключения языка с помощью физической клавиатуры комбинация клавиш: левыe alt + ctrl';
+    p.classList.add('keyboard-text');
+    document.body.append(p);
+
+    p = document.createElement('p');
+    p.innerText = 'Для переключения языка с помощью виртуальной клавиатуры клавиша: ru/en (над клавишей стрелка вправо)';
+    p.classList.add('keyboard-text');
+    document.body.append(p);
 
 function createKeys() {
         
@@ -824,4 +839,32 @@ function getLocalStorage() {
 };
 
 // перед загрузкой страницы (событие load) данные нужно восстановить и отобразить 
-window.addEventListener('load', getLocalStorage); 
+window.addEventListener('load', getLocalStorage);
+
+// перевод языка с помощью физической клавиатуры 
+function runOnKeys(func, ...codes) {
+   let pressed = new Set();
+   document.addEventListener('keydown', function(event) {
+     pressed.add(event.code);
+     for (let code of codes) { // все ли клавиши из набора нажаты?
+       if (!pressed.has(code)) {
+         return;
+       }
+     }
+     // да, все
+     // во время показа alert, если посетитель отпустит клавиши - не возникнет keyup
+     // при этом JavaScript "пропустит" факт отпускания клавиш, а pressed[keyCode] останется true
+     // чтобы избежать "залипания" клавиши -- обнуляем статус всех клавиш, пусть нажимает всё заново
+     pressed.clear();
+     func();
+   });
+   document.addEventListener('keyup', function(event) {
+     pressed.delete(event.code);
+   });
+}
+
+runOnKeys(
+   () => translate (),
+   "AltLeft",
+   "ControlLeft"
+ );
