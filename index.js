@@ -519,10 +519,8 @@ document.addEventListener('mousedown', e => {
         activeElement();
          e.target.classList.add('keyboard-button_animate');
       if (e.target.innerText === "backspace") {
-         textareaString = input.value; 
-        input.value = textareaString;
-        input.value  = textareaString.substring(0, textareaString.length - 1);
-        textareaString = input.value;
+         input.value = textareaString.substring(-1, textareaString.length - 1);; 
+         textareaString = input.value;
 
       } else if (e.target.innerText === "enter") {
          input.value = textareaString + '\r\n'; 
@@ -615,7 +613,6 @@ document.addEventListener('mousedown', e => {
          textareaString = input.value;
 
       } else if (e.target.classList.contains('keyboard-button_delete')) {
-         console.log(1);
          input.value = textareaString.substring(-1, textareaString.length - 1);; 
          textareaString = input.value;
 
@@ -636,13 +633,10 @@ function activeElement() {
 let activeButton;
 
 document.addEventListener('keydown', function(event) {
-   console.log(event.code);
-   console.log(event.key);
    if (event.code !== "Space" && event.code !== "AltLeft" && event.code !== "AltRight"
     && event.code !== "ShiftLeft" && event.code !== "ShiftRight"
     && event.code !== "ControlLeft" && event.code !== "ControlRight") {
       activeButton = document.getElementById(event.key.toLowerCase());
-      console.log(activeButton);
       activeButton.classList.add('keyboard-button_animate');
    } 
    else if (event.code === "Space") {
@@ -650,7 +644,8 @@ document.addEventListener('keydown', function(event) {
       activeButton.classList.add('keyboard-button_animate');
    }
       if (event.key === "Backspace") {
-         input.value = textareaString.substring(0, textareaString.length - 1);
+         input.value = textareaString.substring(-1, textareaString.length - 1);; 
+         textareaString = input.value;
       }
       else if (event.key === "Tab") {
          input.value = textareaString + "    ";
@@ -737,7 +732,6 @@ document.addEventListener('keydown', function(event) {
          if (activeButton.classList.contains('caps_lock')) {
             allElenemtData.forEach((element) => {
                element.textContent = i18Obj.encapslock[element.dataset.i18];
-               console.log(element.textContent);
             })
          } 
          else {
@@ -787,7 +781,6 @@ document.addEventListener('mouseup', e => {
    activeElement();
    if (e.target.innerText === "shift") {
       if (language.innerText === 'en') {
-         console.log(23);
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.ru[element.dataset.i18];
          });
@@ -825,7 +818,6 @@ function getLocalStorage() {
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.en[element.dataset.i18];
          })
-         console.log(20);
       } else if (localStorage.getItem('lang') === 'en') {
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.ru[element.dataset.i18];
@@ -868,3 +860,15 @@ runOnKeys(
    "AltLeft",
    "ControlLeft"
  );
+
+ // выделим элемент под мышью
+let keyboardWrapper = document.querySelector('.keyboard-wrapper');
+keyboardWrapper.onmouseover = function(event) {
+   let target = event.target;
+   target.style.background = '#bb9d42';
+ };
+ 
+ keyboardWrapper.onmouseout = function(event) {
+   let target = event.target;
+   target.style.background = '';
+ };
