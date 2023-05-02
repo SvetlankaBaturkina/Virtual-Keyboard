@@ -805,7 +805,7 @@ function getLocalStorage() {
       element.textContent = i18Obj.ru[element.dataset.i18];
     });
   }
-  if (language.value === '') {
+  if (language.value === ' ') {
     allElenemtData.forEach((element) => {
       element.textContent = i18Obj.en[element.dataset.i18];
     });
