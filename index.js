@@ -393,9 +393,10 @@ let h1 = document.createElement('h1');
 let input = document.createElement('textarea');
     document.body.append(input);
     input.classList.add('keyboard-input');
-   input.setAttribute("wrap", "hard");
+    input.setAttribute("wrap", "hard");
     input.setAttribute("cols", "50");
     input.setAttribute("row", "5");
+   //  input.setAttribute("readonly", "readonly");
 
 let container = document.createElement('div');
     container.classList.add('keyboard-container');
@@ -513,16 +514,35 @@ if (button.innerText === "slash") {
 let buttonKey = document.querySelectorAll('.keyboard-button');
 const allElenemtData = document.querySelectorAll('[data-i18]');
 let textareaString = "";
+let substring = "";
+let startPos;
+
+function textbox() {
+   var ctl = input;
+   startPos = ctl.selectionStart;
+  //  var endPos = ctl.selectionEnd;
+  //  alert(startPos + ", " + endPos);
+return startPos;
+}
+
+function SelectText () {
+   textbox();
+       input.focus();
+       input.setSelectionRange(startPos, startPos);
+}
 
 document.addEventListener('mousedown', e => {
     if (e.target.classList.contains("keyboard-button")) {
         activeElement();
          e.target.classList.add('keyboard-button_animate');
+
       if (e.target.innerText === "backspace") {
-         textareaString = input.value; 
-        input.value = textareaString;
-        input.value  = textareaString.substring(0, textareaString.length - 1);
-        textareaString = input.value;
+         textbox();
+         substring = textareaString.slice(0, startPos-1) + textareaString.slice(startPos, textareaString.length);
+         input.value = substring;
+         textareaString = input.value;
+         startPos = startPos
+         SelectText ();
 
       } else if (e.target.innerText === "enter") {
          input.value = textareaString + '\r\n'; 
@@ -615,8 +635,9 @@ document.addEventListener('mousedown', e => {
          textareaString = input.value;
 
       } else if (e.target.classList.contains('keyboard-button_delete')) {
-         console.log(1);
-         input.value = textareaString.substring(-1, textareaString.length - 1);; 
+         textbox();
+         substring = textareaString.slice(0, startPos) + textareaString.slice(startPos+1, textareaString.length);
+         input.value = substring;
          textareaString = input.value;
 
       } else  {
@@ -636,21 +657,29 @@ function activeElement() {
 let activeButton;
 
 document.addEventListener('keydown', function(event) {
-   console.log(event.code);
-   console.log(event.key);
    if (event.code !== "Space" && event.code !== "AltLeft" && event.code !== "AltRight"
     && event.code !== "ShiftLeft" && event.code !== "ShiftRight"
     && event.code !== "ControlLeft" && event.code !== "ControlRight") {
       activeButton = document.getElementById(event.key.toLowerCase());
-      console.log(activeButton);
       activeButton.classList.add('keyboard-button_animate');
+      input.blur();
    } 
    else if (event.code === "Space") {
       activeButton = document.getElementById('space');
       activeButton.classList.add('keyboard-button_animate');
    }
       if (event.key === "Backspace") {
-         input.value = textareaString.substring(0, textareaString.length - 1);
+         textbox();
+         substring = textareaString.slice(0, startPos-1) + textareaString.slice(startPos, textareaString.length);
+         // input.blur();
+         input.value = substring;
+         textareaString = input.value;
+         // startPos = startPos
+         // SelectText ();
+         // substring = textareaString.slice(0, textareaString.length-1);
+         // input.blur();
+         // input.value = substring;
+         // textareaString = input.value;
       }
       else if (event.key === "Tab") {
          input.value = textareaString + "    ";
@@ -665,7 +694,10 @@ document.addEventListener('keydown', function(event) {
          textareaString = input.value;
       } 
       else if (event.key === "Delete") {
-         input.value = textareaString.substring(0, textareaString.length - 1);
+         textbox();
+         substring = textareaString.slice(0, startPos) + textareaString.slice(startPos+1, textareaString.length);
+         // input.blur();
+         input.value = substring;
          textareaString = input.value;
       }
       else if (event.key === "Meta") {
@@ -737,7 +769,6 @@ document.addEventListener('keydown', function(event) {
          if (activeButton.classList.contains('caps_lock')) {
             allElenemtData.forEach((element) => {
                element.textContent = i18Obj.encapslock[element.dataset.i18];
-               console.log(element.textContent);
             })
          } 
          else {
@@ -770,6 +801,7 @@ document.addEventListener('keydown', function(event) {
 
 document.addEventListener('keyup', event => {
    activeElement();
+   input.focus();
    if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
       if (language.innerText === 'en') {
          allElenemtData.forEach((element) => {
@@ -787,7 +819,6 @@ document.addEventListener('mouseup', e => {
    activeElement();
    if (e.target.innerText === "shift") {
       if (language.innerText === 'en') {
-         console.log(23);
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.ru[element.dataset.i18];
          });
@@ -825,7 +856,6 @@ function getLocalStorage() {
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.en[element.dataset.i18];
          })
-         console.log(20);
       } else if (localStorage.getItem('lang') === 'en') {
          allElenemtData.forEach((element) => {
             element.textContent = i18Obj.ru[element.dataset.i18];
@@ -868,3 +898,19 @@ runOnKeys(
    "AltLeft",
    "ControlLeft"
  );
+
+ // выделим элемент под мышью
+let keyboardWrapper = document.querySelector('.keyboard-wrapper');
+keyboardWrapper.onmouseover = function(event) {
+   let target = event.target;
+   target.style.background = '#bb9d42';
+ };
+ 
+ keyboardWrapper.onmouseout = function(event) {
+   let target = event.target;
+   target.style.background = '';
+ };
+
+//  if (input.addEventListener(('click'), () => {
+//    input.blur();
+//  }));
