@@ -87,7 +87,6 @@
     background-color: #bb9d42;
 }
 
-/* Анимация */
 .keyboard-button_animate {
     animation: animate_reduce 1s 1;
     background: #bb9d42;
