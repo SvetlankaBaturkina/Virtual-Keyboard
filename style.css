@@ -89,9 +89,8 @@
 
 /* Анимация */
 .keyboard-button_animate {
-    
     animation: animate_reduce 1s 1;
-    background: #F7CA18;
+    background: #bb9d42;
     border: solid px #bb9d42;
     color: black;
 }
@@ -106,4 +105,8 @@
     100% {
         transform: scale3d(1, 1, 1);
     }
+}
+
+.background {
+    background-color: #bb9d42;
 }
